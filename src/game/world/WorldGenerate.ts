@@ -31,26 +31,26 @@ class WorldGenerate {
       roomPoints.push([x, y].join(','));
 
       if (room.doors.top) {
-        spawnPoints.push({ x, y: y - 9, direction: 'bottom' });
+        spawnPoints.push({ x, y: y - 10, direction: 'bottom' });
       }
 
       if (room.doors.bottom) {
-        spawnPoints.push({ x, y: y + 9, direction: 'top' });
+        spawnPoints.push({ x, y: y + 10, direction: 'top' });
       }
 
       if (room.doors.left) {
-        spawnPoints.push({ x: x - 9, y, direction: 'right' });
+        spawnPoints.push({ x: x - 10, y, direction: 'right' });
       }
 
       if (room.doors.right) {
-        spawnPoints.push({ x: x + 9, y, direction: 'left' });
+        spawnPoints.push({ x: x + 10, y, direction: 'left' });
       }
     }
   }
 
   private static placeRoom(x: number, y: number, room: Room, map: WorldMap) {
-    for(let i=0; i < 10; i++) {
-      for(let j=0; j < 10; j++) {
+    for(let i=0; i < 11; i++) {
+      for(let j=0; j < 11; j++) {
         const isFloor = room.tiles[j][i] === 0;
         const tile = isFloor ? WorldMap.FLOOR : WorldMap.WALL;
         map.setTile(x + i, y + j, tile);
