@@ -1,4 +1,4 @@
-import { Colorable, Placeable, Player, ShapeHuman } from './components';
+import { Colorable, Placeable, Player, ShapeHuman, Movable } from './components';
 import Entity from './Entity';
 
 class EntityPlayer extends Entity {
@@ -8,6 +8,7 @@ class EntityPlayer extends Entity {
     player.is(new Colorable('green'));
     player.is(new ShapeHuman());
     player.is(new Player());
+    player.is(new Movable());
 
     return player;
   }

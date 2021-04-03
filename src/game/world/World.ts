@@ -1,5 +1,5 @@
 import Entity, { EntityPlayer, EntityTile } from '../entities';
-import { KeyboardSystem, RendererSystem } from '../entities/systems';
+import { KeyboardSystem, MovementSystem, RendererSystem } from '../entities/systems';
 import { Canvas, Renderer, Updater } from '../engine';
 import Input from '../engine/input';
 import Graphics from '../engine/graphics';
@@ -38,6 +38,7 @@ class World implements Renderer, Updater {
   public update(input: Input, delta: number, canvas: Canvas): void {
     this.entities.forEach((entity) => {
       KeyboardSystem.for(entity).shouldRun()?.update(input, delta, canvas);
+      MovementSystem.for(entity).shouldRun()?.update(input, delta, canvas);
 
       if (entity.isDrawable()) {
         this.draw(entity);

@@ -7,6 +7,7 @@ export { default as Drawable } from './Drawable';
 export { default as Player } from './Player';
 export { default as Tile } from './Tile';
 export { default as Solid } from './Solid';
+export { default as Movable } from './Movable';
 
 export type ComponentId =
   | 'Placeable'

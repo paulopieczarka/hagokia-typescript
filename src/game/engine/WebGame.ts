@@ -22,6 +22,7 @@ class WebGame {
   public init(game: Game): void {
     this.game = game;
     this.graphics = new Graphics(this.canvas, this.ctx);
+    this.input = new Input();
 
     this.game.init(this.canvas);
     this.requestAnimationFrame();
@@ -29,6 +30,7 @@ class WebGame {
 
   private gameLoop(): void {
     this.game.update(this.input, 1.0, this.canvas);
+    this.input.keyboard.pool();
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.game.render(this.canvas, this.graphics);
