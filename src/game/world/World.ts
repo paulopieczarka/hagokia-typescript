@@ -18,7 +18,7 @@ class World implements Renderer, Updater {
   }
 
   public init(canvas: Canvas): void {
-    this.map = WorldGenerate.generate(32);
+    this.map = WorldGenerate.generate(120);
     this.map.registerComponents(this);
 
     const { spawnX, spawnY } = this.map;
@@ -28,8 +28,9 @@ class World implements Renderer, Updater {
   public render(canvas: Canvas, g: Graphics): void {
     this.entitiesToDraw.forEach((entity) => {
       RendererSystem.for(entity).render(canvas, g);
-      this.entitiesToDraw.shift();
     });
+
+    this.entitiesToDraw = [];
   }
 
   public update(input: Input, delta: number): void {

@@ -3,6 +3,7 @@ import Constants from '../Constants';
 import World from './World';
 
 class WorldMap {
+  public static readonly NONE = -1;
   public static readonly FLOOR = 0;
   public static readonly WALL = 1;
 
@@ -38,14 +39,16 @@ class WorldMap {
           return;
         }
 
-        world.spawn(EntityFloor.create(x, y));
+        if (id === WorldMap.FLOOR) {
+          world.spawn(EntityFloor.create(x, y));
+        }
       });
     });
   }
 
   public reset(): void {
     this.map = Array(this.size).fill(0).map(
-      () => Array(this.size).fill(0).map(() => WorldMap.FLOOR)
+      () => Array(this.size).fill(0).map(() => WorldMap.NONE)
     );
   }
 }
