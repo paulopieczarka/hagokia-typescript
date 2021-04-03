@@ -12,7 +12,7 @@ class MovementSystem extends System {
 
   public update(input: Input, delta: number, canvas: Canvas): void {
     const movement = this.getMovement();
-    if (movement.hasMovement) {
+    if (movement.hasMovement()) {
       const position = this.getPosition();
       position.x += movement.moveToX;
       position.y += movement.moveToY;
