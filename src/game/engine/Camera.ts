@@ -45,14 +45,14 @@ class Camera implements Updater {
     if (!this.target) { return; }
 
     const { x, y } = this.target.get<Placeable>('Placeable');
-    this.nextPosX = x * Constants.TILE_SIZE - canvas.width/2;
-    this.nextPosY = y * Constants.TILE_SIZE - canvas.height/2;
+    this.nextPosX = x * Constants.TILE_SIZE - canvas.width/2 + Constants.TILE_SIZE/2;
+    this.nextPosY = y * Constants.TILE_SIZE - canvas.height/2 + Constants.TILE_SIZE/2;
   }
 
   private snapToTarget(canvas: Canvas) {
     const { x, y } = this.target.get<Placeable>('Placeable');
-    this.x = -x * Constants.TILE_SIZE + canvas.width/2;
-    this.y = -y * Constants.TILE_SIZE + canvas.height/2;
+    this.x = -x * Constants.TILE_SIZE + canvas.width/2 - Constants.TILE_SIZE/2;
+    this.y = -y * Constants.TILE_SIZE + canvas.height/2 - Constants.TILE_SIZE/2;
     this.snap = false;
   }
 }
