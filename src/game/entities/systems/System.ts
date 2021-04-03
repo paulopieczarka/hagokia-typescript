@@ -5,7 +5,7 @@ import Graphics from '../../engine/graphics';
 import Input from '../../engine/input';
 
 const hasAllComponents = (a: ComponentId[], b: ComponentId[]) => (
-  JSON.stringify(a.sort()) === JSON.stringify(b.sort())
+  a.filter((x) => b.includes(x)).length === b.length
 );
 
 class System {
