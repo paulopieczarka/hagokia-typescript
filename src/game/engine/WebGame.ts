@@ -28,7 +28,7 @@ class WebGame {
   }
 
   private gameLoop(): void {
-    this.game.update(this.input, 1.0);
+    this.game.update(this.input, 1.0, this.canvas);
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.game.render(this.canvas, this.graphics);

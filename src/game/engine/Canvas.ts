@@ -1,6 +1,9 @@
+import Camera from './Camera';
+
 class Canvas {
   public width: number = 800;
   public height: number = 600;
+  public camera: Camera;
 
   public static fromHTMLCanvas(htmlCanvas: HTMLCanvasElement): Canvas {
     const { width, height } = htmlCanvas;
@@ -16,6 +19,11 @@ class Canvas {
     onWindowResize();
 
     return canvas;
+  }
+
+  public useCamera(camera: Camera): Canvas {
+    this.camera = camera;
+    return this;
   }
 
   private constructor(width: number, height: number) {

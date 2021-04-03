@@ -15,8 +15,8 @@ class RendererSystem extends System {
     const { x, y } = this.getPosition();
     const { width, height } = this.getSizes();
 
-    const renderPosX = x * Constants.TILE_SIZE;
-    const renderPosY = y * Constants.TILE_SIZE;
+    const renderPosX = x * Constants.TILE_SIZE + canvas.camera?.x;
+    const renderPosY = y * Constants.TILE_SIZE + canvas.camera?.y;
     g.color(color).translate(renderPosX, renderPosY).rect(0, 0, width, height);
   }
 

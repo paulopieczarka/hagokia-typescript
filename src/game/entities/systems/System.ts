@@ -15,7 +15,7 @@ class System {
 
   public render(canvas: Canvas, g: Graphics): void {}
 
-  public update(input: Input, delta: number): void {}
+  public update(input: Input, delta: number, canvas: Canvas): void {}
 
   public shouldRun(): System | null {
     const entityComponents = this.entity.getComponentIds();

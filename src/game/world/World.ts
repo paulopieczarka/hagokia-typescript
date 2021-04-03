@@ -11,6 +11,7 @@ class World implements Renderer, Updater {
   private entities: Entity[];
   private entitiesToDraw: Entity[];
   private map: WorldMap;
+  private player: Entity;
 
   constructor() {
     this.entities = [];
@@ -22,7 +23,8 @@ class World implements Renderer, Updater {
     this.map.registerComponents(this);
 
     const { spawnX, spawnY } = this.map;
-    this.spawn(EntityPlayer.create('Vornian'), spawnX, spawnY);
+    this.player = EntityPlayer.create('Vornian');
+    this.spawn(this.player, spawnX, spawnY);
   }
 
   public render(canvas: Canvas, g: Graphics): void {
@@ -33,9 +35,9 @@ class World implements Renderer, Updater {
     this.entitiesToDraw = [];
   }
 
-  public update(input: Input, delta: number): void {
+  public update(input: Input, delta: number, canvas: Canvas): void {
     this.entities.forEach((entity) => {
-      KeyboardSystem.for(entity).shouldRun()?.update(input, delta);
+      KeyboardSystem.for(entity).shouldRun()?.update(input, delta, canvas);
 
       if (entity.isDrawable()) {
         this.draw(entity);
@@ -50,6 +52,10 @@ class World implements Renderer, Updater {
     }
 
     this.entities[entity.id] = entity;
+  }
+
+  public getPlayer(): EntityPlayer {
+    return this.player;
   }
 
   private draw(entity: Entity): void {

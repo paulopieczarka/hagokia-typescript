@@ -1,3 +1,4 @@
+import { Canvas } from '~engine';
 import { ComponentId } from './../components';
 import Input from '../../engine/input';
 import Entity from '../Entity';
@@ -8,7 +9,7 @@ class KeyboardSystem extends System {
     return new KeyboardSystem(entity);
   }
 
-  public update(input: Input, delta: number): void {
+  public update(input: Input, delta: number, canvas: Canvas): void {
   }
 
   public get requires (): ComponentId[] {
