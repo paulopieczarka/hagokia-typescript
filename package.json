@@ -1,16 +1,13 @@
 {
   "name": "hagokia",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An open-world rogue-like exploration game written in Typescript",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel serve ./src/index.html",
     "build": "parcel build ./src/index.html --public-url ./"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Paulo Pieczarka <paulopieczarka@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "parcel": "^2.0.0-beta.2"
   }
