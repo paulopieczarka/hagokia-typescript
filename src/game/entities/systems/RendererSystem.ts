@@ -1,3 +1,4 @@
+import Constants from '../../Constants';
 import Canvas from '../../engine/Canvas';
 import Graphics from '../../engine/graphics';
 import { Colorable, Placeable, Shape, ComponentId } from '../components';
@@ -14,7 +15,9 @@ class RendererSystem extends System {
     const { x, y } = this.getPosition();
     const { width, height } = this.getSizes();
 
-    g.color(color).translate(x, y).rect(0, 0, width, height);
+    const renderPosX = x * Constants.TILE_SIZE;
+    const renderPosY = y * Constants.TILE_SIZE;
+    g.color(color).translate(renderPosX, renderPosY).rect(0, 0, width, height);
   }
 
   public get requires (): ComponentId[] {

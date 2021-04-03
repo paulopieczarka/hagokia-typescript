@@ -1,5 +1,5 @@
-import EntityTile from '../entities/EntityTile';
 import { EntityFloor, EntityWall } from '../entities';
+import Constants from '../Constants';
 import World from './World';
 
 class WorldMap {
@@ -26,8 +26,8 @@ class WorldMap {
   }
 
   public setSpawn(x: number, y: number): void {
-    this.spawnX = x * EntityTile.SIZE;
-    this.spawnY = y * EntityTile.SIZE;
+    this.spawnX = x;
+    this.spawnY = y;
   }
 
   public registerComponents(world: World): void {

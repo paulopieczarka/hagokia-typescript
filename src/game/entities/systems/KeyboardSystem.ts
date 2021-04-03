@@ -1,10 +1,9 @@
 import { ComponentId } from './../components';
-import Updater from '../../engine/Updater';
 import Input from '../../engine/input';
 import Entity from '../Entity';
 import System from './System';
 
-class KeyboardSystem extends System implements Updater {
+class KeyboardSystem extends System {
   public static for(entity: Entity): KeyboardSystem {
     return new KeyboardSystem(entity);
   }
@@ -13,7 +12,7 @@ class KeyboardSystem extends System implements Updater {
   }
 
   public get requires (): ComponentId[] {
-    return ['Placeable', 'Player'];
+    return ['Placeable', 'Movable', 'Player'];
   }
 }
 

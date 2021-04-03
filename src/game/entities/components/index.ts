@@ -15,4 +15,5 @@ export type ComponentId =
   | 'Player'
   | 'Tile'
   | 'Solid'
+  | 'Movable'
 ;
