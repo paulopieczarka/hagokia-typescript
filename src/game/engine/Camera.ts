@@ -7,7 +7,7 @@ import Input from './input';
 
 class Camera implements Updater {
   private readonly THRESHOLD = 5.0;
-  private readonly SPEED = 4.2;
+  private readonly SPEED = 10.0;
 
   private target: Entity;
   private snap: boolean = true;
