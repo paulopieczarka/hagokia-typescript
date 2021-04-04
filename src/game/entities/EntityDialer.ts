@@ -1,4 +1,4 @@
-import { Colorable, Placeable, Shape } from './components';
+import { Collidable, Colorable, Placeable, Shape } from './components';
 import Entity from './Entity';
 
 class EntityDialer extends Entity {
@@ -7,6 +7,8 @@ class EntityDialer extends Entity {
     dialer.is(new Placeable(1, 1));
     dialer.is(new Colorable('cyan'));
     dialer.is(new Shape(1, 1));
+    dialer.is(new Collidable());
+
     return dialer;
   }
 

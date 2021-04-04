@@ -8,6 +8,7 @@ export { default as Player } from './Player';
 export { default as Tile } from './Tile';
 export { default as Solid } from './Solid';
 export { default as Movable } from './Movable';
+export { default as Collidable } from './Collidable';
 
 export type ComponentId =
   | 'Placeable'
@@ -17,4 +18,5 @@ export type ComponentId =
   | 'Tile'
   | 'Solid'
   | 'Movable'
+  | 'Collidable'
 ;

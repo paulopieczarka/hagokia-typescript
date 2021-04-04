@@ -1,6 +1,9 @@
 import Component from './Component';
 
 class Movable extends Component {
+  public lastPosX: number;
+  public lastPosY: number;
+
   constructor(
     public moveToX: number = 0,
     public moveToY: number = 0,

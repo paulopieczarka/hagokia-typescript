@@ -14,6 +14,8 @@ class MovementSystem extends System {
     const movement = this.getMovement();
     if (movement.hasMovement()) {
       const position = this.getPosition();
+      movement.lastPosX = position.x;
+      movement.lastPosY = position.y;
       position.x += movement.moveToX;
       position.y += movement.moveToY;
       movement.reset();
