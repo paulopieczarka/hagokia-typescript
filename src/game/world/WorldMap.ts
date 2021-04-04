@@ -3,9 +3,9 @@ import Constants from '../Constants';
 import World from './World';
 
 class WorldMap {
-  public static readonly NONE = -1;
-  public static readonly FLOOR = 0;
-  public static readonly WALL = 1;
+  public static readonly NONE = 0;
+  public static readonly FLOOR = 1;
+  public static readonly WALL = 2;
 
   public spawnX: number;
   public spawnY: number;

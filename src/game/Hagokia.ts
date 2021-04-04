@@ -1,32 +1,32 @@
 import { Canvas, Game, Camera } from './engine';
 import Graphics from './engine/graphics';
 import Input from './engine/input';
-import World from './world';
+import { WorldManager } from './world';
 
 class Hagokia implements Game {
-  private world: World;
+  private worldManager: WorldManager;
   private camera: Camera;
 
   constructor() {
-    this.world = new World();
+    this.worldManager = new WorldManager();
     this.camera = new Camera();
   }
 
   init(canvas: Canvas): void {
     console.log('Game init.');
 
-    this.world.init(canvas);
+    this.worldManager.init(canvas);
 
     canvas.useCamera(this.camera);
-    this.camera.follow(this.world.getPlayer());
+    this.camera.follow(this.worldManager.getPlayer());
   }
 
   render(canvas: Canvas, g: Graphics): void {
-    this.world.render(canvas, g);
+    this.worldManager.render(canvas, g);
   }
 
   update(input: Input, delta: number, canvas: Canvas): void {
-    this.world.update(input, delta, canvas);
+    this.worldManager.update(input, delta, canvas);
     this.camera.update(input, delta, canvas);
   }
 }

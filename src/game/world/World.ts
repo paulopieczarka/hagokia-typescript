@@ -8,12 +8,13 @@ import { Placeable } from '~entities/components';
 import WorldMap from './WorldMap';
 
 class World implements Renderer, Updater {
+  protected map: WorldMap;
+  protected player: Entity;
+
   private entities: Entity[];
   private entitiesToDraw: Entity[];
-  private map: WorldMap;
-  private player: Entity;
 
-  constructor() {
+  constructor(public name: string = 'World') {
     this.entities = [];
     this.entitiesToDraw = [];
   }
@@ -21,10 +22,7 @@ class World implements Renderer, Updater {
   public init(canvas: Canvas): void {
     this.map = WorldGenerate.generate(120);
     this.map.registerComponents(this);
-
-    const { spawnX, spawnY } = this.map;
-    this.player = EntityPlayer.create('Vornian');
-    this.spawn(this.player, spawnX, spawnY);
+    this.addPlayer();
   }
 
   public render(canvas: Canvas, g: Graphics): void {
@@ -57,6 +55,12 @@ class World implements Renderer, Updater {
 
   public getPlayer(): EntityPlayer {
     return this.player;
+  }
+
+  protected addPlayer(): void {
+    const { spawnX, spawnY } = this.map;
+    this.player = EntityPlayer.create('Vornian');
+    this.spawn(this.player, spawnX, spawnY);
   }
 
   private draw(entity: Entity): void {

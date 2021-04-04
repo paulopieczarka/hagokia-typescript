@@ -14,12 +14,11 @@ class Movable extends Component {
   }
 
   public hasMovement(): boolean {
-    return Boolean(this.moveToX || this.moveToY );
+    return Boolean(this.moveToX || this.moveToY);
   }
 
   public reset(): void {
-    this.moveToX = 0;
-    this.moveToY = 0;
+    this.moveToX = this.moveToY = 0;
   }
 }
 
