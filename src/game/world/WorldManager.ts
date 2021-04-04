@@ -19,6 +19,8 @@ class WorldManager implements Renderer, Updater {
 
   public render(canvas: Canvas, g: Graphics): void {
     this.current?.render(canvas, g);
+
+    g.color('white').text('center', 0, this.current?.name);
   }
 
   public update(input: Input, delta: number, canvas: Canvas): void {

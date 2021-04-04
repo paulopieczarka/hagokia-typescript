@@ -4,7 +4,9 @@ class Graphics {
   constructor(
     private canvas: Canvas,
     private ctx: CanvasRenderingContext2D,
-  ) {}
+  ) {
+    this.ctx.font = '16px Sans-serif'
+  }
 
   public save(): Graphics {
     this.ctx.save();
@@ -35,6 +37,15 @@ class Graphics {
     this.ctx.fillRect(x, y, width, height);
     this.ctx.resetTransform();
     return this;
+  }
+
+  public text(x: number | 'center', y: number, text: string) {
+    if (x === 'center') {
+      const { width } = this.ctx.measureText(text);
+      x = this.canvas.width/2 - width/2;
+    }
+
+    this.ctx.fillText(text, x, y + 16);
   }
 }
 
