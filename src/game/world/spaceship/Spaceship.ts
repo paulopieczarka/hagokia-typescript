@@ -9,7 +9,7 @@ class Spaceship extends World {
   }
 
   public init(canvas: Canvas): void {
-    this.map = GeneratorSpaceship.use(daedalus).generate();
+    this.map = GeneratorSpaceship.for(this).use(daedalus).generate();
     this.map.registerComponents(this);
     this.addPlayer();
   }

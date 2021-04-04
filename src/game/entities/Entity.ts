@@ -37,6 +37,14 @@ class Entity {
     );
   }
 
+  public isTile(): boolean {
+    return Boolean(
+      Object.values(this.components).find(
+        (component: Component) => 'isTile' in component
+      )
+    );
+  }
+
   private getKey(component: Component): string {
     return component.id;
   }

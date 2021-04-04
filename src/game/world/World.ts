@@ -64,6 +64,11 @@ class World implements Renderer, Updater {
   }
 
   private draw(entity: Entity): void {
+    if (entity.isTile()) {
+      this.entitiesToDraw.unshift(entity);
+      return;
+    }
+
     this.entitiesToDraw.push(entity);
   }
 }
